@@ -22,10 +22,9 @@ class SecondFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this).get(SecondViewModel::class.java)
-
-        val name = SecondFragmentArgs.fromBundle(requireArguments()).name
-        name?.let {
-            viewModel.setName(it)
+        val text = SecondFragmentArgs.fromBundle(requireArguments()).data
+        text?.let {
+            viewModel.setText(it)
         }
 
     }
@@ -36,7 +35,7 @@ class SecondFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.second_fragment, container, false)
 
-        viewModel.getName().observe(viewLifecycleOwner, Observer {
+        viewModel.getText().observe(viewLifecycleOwner, Observer {
             binding.nameTv.text = it
         })
         return binding.root

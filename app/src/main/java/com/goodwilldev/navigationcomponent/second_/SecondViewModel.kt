@@ -5,13 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class SecondViewModel : ViewModel() {
-    private var name: MutableLiveData<String> = MutableLiveData()
+    private var text: MutableLiveData<String> = MutableLiveData()
 
-    fun setName(name: String) {
-        this.name.postValue(name)
+    fun setText(text: String) {
+        this.text.postValue(text)
     }
 
-    fun getName(): LiveData<String> {
-        return name
+    fun getText(): LiveData<String> {
+        return text
     }
 }

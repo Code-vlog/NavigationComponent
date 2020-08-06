@@ -25,12 +25,11 @@ class HomeFragment : Fragment() {
 
         binding.button.setOnClickListener {
             val text = binding.nameEt.editText?.text.toString()
-            if (text.isEmpty()) {
+            if (text.isEmpty()){
                 binding.nameEt.isErrorEnabled = true
-                binding.nameEt.error = "Invalid input"
-            } else {
-                val action =
-                    HomeFragmentDirections.actionHomeFragmentToSecondFragment(text)
+                binding.nameEt.error = "Input invalid"
+            }else{
+                val action = HomeFragmentDirections.actionHomeFragmentToSecondFragment(text)
                 findNavController().navigate(action)
             }
         }
